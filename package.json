@@ -1,0 +1,22 @@
+{
+  "name": "workstation",
+  "version": "0.1.0",
+  "private": true,
+  "bin": {
+    "workstation": "./cli.js"
+  },
+  "scripts": {
+    "check": "node cli.js check",
+    "prepare": "git config core.hooksPath .githooks || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:franKobayasi/workstation.git"
+  },
+  "ade": {
+    "upstream": "https://github.com/franKobayasi/agentic-dev-env.git"
+  },
+  "dependencies": {
+    "create-agentic-dev-env": "1.6.1"
+  }
+}

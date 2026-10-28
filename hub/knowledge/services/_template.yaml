@@ -1,0 +1,16 @@
+# 服務描述檔範本：複製為 <服務名稱>.yaml 後填寫
+# 收錄規則見本資料夾的 README.md
+name: <service-name>
+description: |
+  定位：這個服務在整個產品中的角色、為什麼存在（一～兩句）。
+repo:
+  url: git@github.com:ORG/<service-name>.git
+  branch: main
+stack:
+  language: <例：TypeScript / NestJS>
+  package_manager: <例：pnpm>
+  runtime: <例：Node 22>
+dependencies:
+  calls:
+    - service: <service-b>
+      reason: <為了什麼呼叫它>
