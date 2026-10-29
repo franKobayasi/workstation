@@ -1,0 +1,24 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      create-agentic-dev-env:
+        specifier: 1.6.1
+        version: 1.6.1
+
+packages:
+
+  create-agentic-dev-env@1.6.1:
+    resolution: {integrity: sha512-cjDtpNZRr2oBrtKxEse1/mXYgrDzeDw0oWqvxZkrp3mG4zHwHj7Ohhl3Kvnj3iAFnIKRYFn4BrWmP82d0Ftmeg==}
+    engines: {node: '>=20'}
+    hasBin: true
+
+snapshots:
+
+  create-agentic-dev-env@1.6.1: {}

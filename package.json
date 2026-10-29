@@ -6,8 +6,7 @@
     "workstation": "./cli.js"
   },
   "scripts": {
-    "check": "node cli.js check",
-    "prepare": "git config core.hooksPath .githooks || true"
+    "check": "node cli.js check"
   },
   "repository": {
     "type": "git",
