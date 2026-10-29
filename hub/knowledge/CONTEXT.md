@@ -13,11 +13,11 @@ _Avoid_：實際發生過混淆的同義詞
 ## ADE 與 Forge
 
 **ADE（Agentic Dev Environment）**：
-團隊共同維護並持續迭代知識體系的 repository，是知識與 skill 的唯一事實來源；修改都在這裡進行。也可寫作 ADE repo。
+持續迭代知識體系的 repository，是知識與 skill 的唯一事實來源；修改都在這裡進行。也可寫作 ADE repo。
 _Avoid_：中央 ADE repo
 
 **Forge**：
-團隊成員實際運用 ADE 的知識，由人與 AI 協作產出程式碼、軟體或執行結果的目錄；由 ADE 注入知識庫與 skill，各服務的 repo 位於其中的 `workspaces/`。
+實際運用 ADE 的知識，由人與 AI 協作產出程式碼、軟體或執行結果的目錄；由 ADE 注入知識庫與 skill，各服務的 repo 位於其中的 `workspaces/`。
 _Avoid_：工作目錄、消費端、工作站、hub、以 ADE 指稱這個目錄
 
 **工作副本（Working Copy）**：
@@ -49,4 +49,4 @@ _Avoid_：規格（不加限定詞）
 
 ## 產品領域
 
-產品規格與 PRD 共用的名詞，例如產品的屬性、家族、規格值與型號，由團隊依產品填寫。
+產品規格與 PRD 共用的名詞，例如產品的屬性、家族、規格值與型號，依產品填寫。

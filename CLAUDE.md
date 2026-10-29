@@ -1,6 +1,6 @@
 # workstation（ADE）
 
-這是團隊的 ADE，知識與 skill 的唯一事實來源。結構與維護原則見 README.md。`hub/` 底下是 init 與 update 注入每個 Forge 的內容，其餘都屬於本 repo 本身。
+這是 Frank Lin 個人開發工作站的 ADE，基於 create-agentic-dev-env 框架，是知識與 skill 的唯一事實來源。結構與維護原則見 README.md。`hub/` 底下是 init 與 update 注入每個 Forge 的內容，其餘都屬於本 repo 本身。
 
 ## PRD 與產品規格的生命週期
 
