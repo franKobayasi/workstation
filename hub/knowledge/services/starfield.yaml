@@ -1,0 +1,13 @@
+# 收錄規則見本資料夾的 README.md
+name: starfield
+description: |
+  定位：Frank 的個人知識庫，依 LLM Wiki pattern 把原始紀錄編譯成 Markdown wiki，分 work、learning、life 三區；跨專案要長期留存的個人筆記一律寫進這裡。
+repo:
+  url: git@github.com:franKobayasi/starfield.git
+  branch: main
+stack:
+  language: Markdown
+  package_manager: none
+  runtime: none
+dependencies:
+  calls: []
