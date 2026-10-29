@@ -9,7 +9,7 @@
 ADE 把這兩件事抽出來共用：
 
 - **知識**（`hub/knowledge/`）— 服務 registry、跨服務流程慣例、產品規格與 PRD。agent 需要時自己去讀，不用人轉述。
-- **方法**（`hub/skills/`）— 十六支 `ade-*` skill，把「我們怎麼開需求、怎麼交付、怎麼維護文件」寫成 agent 照著跑的流程。
+- **方法**（`hub/skills/`）— 十九支 `ade-*` skill，把「我們怎麼開需求、怎麼交付、怎麼維護文件」寫成 agent 照著跑的流程。
 
 再加一條讓它不會腐爛的機制：Forge 中的知識是**唯讀副本**，agent 用的過程中發現內容與現實不符，會**當場開 PR 修回來**，人只需要 review。
 
@@ -247,6 +247,9 @@ flowchart LR
 | **`ade-add-process`** | 建立或修改流程慣例的 meta-skill（「以後都這樣做」）。依三層機制選載體：無條件約束 → `hub/CLAUDE.section.md` 加一行指標；有觸發時機的程序 → 新增一支 `ade-` 前綴 skill；細節 → `process/` 一主題一檔。並執行 context 紀律：常駐層只寫「何時做＋去哪看」，常駐規則超過 10 行時新增前必須與使用者確認取捨。 | ✅ |
 | **`ade-build-knowledge`** | 在知識庫建立或修改一份知識（「新增知識」「寫進知識庫」）。先依詞彙表與 `description` 查重，判斷內容該不該收、放在哪個分類，以 `new-id.sh` 產生分類內未使用的 id，寫好 frontmatter、內文與上層入口檔的導覽，最後執行 `node cli.js check` 驗證。規則全在 `knowledge/process/build-knowledge.md`，skill 只寫步驟。PRD、服務描述檔與流程慣例改用各自的 skill。 | ✅ |
 | **`ade-create-adr`** | 以 MADR 格式建立或修訂架構決策紀錄（「寫 ADR」「記錄這個決策」）。先依規則確認決定值得寫 ADR，再依主題決定寫到哪裡：服務的架構寫進該服務 repo 的 `docs/adr/`；知識體系、skill 與流程的設計寫進本 repo 的 `docs/adr/`，在 Forge 中走 `ade-contribute`。附 MADR 範本與產生索引的 `adr.js`。規則全在 `knowledge/process/adr-writing.md`。 | ✅ |
+| **`ade-architecture-design`** | 為新系統或既有系統的改造產出架構設計（「設計架構」「系統設計」）。依序走情境分析、品質屬性、2 到 3 個結構不同的候選方案與評選、C4 細化、風險閉環，最後依 `ade-create-adr` 記錄決策，並以 skill 附的範本產出架構設計文件；每一步都停下來請使用者確認。只要單項產出（「整理 NFR」「畫架構圖」）時只執行對應步驟。規則在 `knowledge/process/architecture/`。 | — |
+| **`ade-architecture-review`** | 審查既有設計或系統（「架構審查」「上線前檢查」）。界定審查類型、收集材料（需要時以 subagent 重建現況）、先做理解確認，再做場景走查、決策審查與風險評估，以 skill 附的範本產出分級 findings 與放行建議，最後與提案方逐項核對事實。只要單項產出（「這個架構有什麼風險」）時只執行對應步驟。規則在 `knowledge/process/architecture/`。 | — |
+| **`ade-tech-decision`** | 技術選型（「A 和 B 要選哪個」「要不要導入 XX」「寫 RFC」）。先判定可逆性：雙向門做輕量的加權評分比較；單向門經快速過濾後走準則與選項、評分與 PoC、RFC 徵詢、收斂，最後依 `ade-create-adr` 記錄並設定重審條件。規則在 `knowledge/process/architecture/`。 | — |
 
 ### 在本 ADE 內工作用的 skills（PO／維護者在本 repo 開 Claude Code 使用）
 
@@ -268,7 +271,7 @@ hub/                     # init／update 注入每個 Forge 的內容
 │   ├── process/         # 流程與團隊慣例，含建立知識、撰寫 PRD 與 ADR 的規則
 │   ├── specs/           # 產品規格，持續迭代的事實來源
 │   └── prd/             # 一次開發一份的需求文件，歷史文件不迭代
-└── skills/              # Forge 的 .claude/skills/（十六支，見上方 Skills）
+└── skills/              # Forge 的 .claude/skills/（十九支，見上方 Skills）
 .claude/skills/          # 本 repo 內可用的 skills：實體目錄是本 repo 專用，symlink 指向 hub/skills/ 中標 ade-scope: both 的
 .githooks/pre-commit     # commit 前產生 ADR 與知識庫的索引、執行知識庫檢查（pnpm install 時啟用）
 docs/                    # 只給維護者讀、不注入 Forge 的文件，例如 adr/ 決策紀錄
